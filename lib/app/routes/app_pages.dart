@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/detail_news/bindings/detail_news_binding.dart';
+import '../modules/detail_news/views/detail_news_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/home_page/bindings/home_page_binding.dart';
@@ -27,8 +29,13 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.HOME_PAGE,
-      page: () => const HomePageView(),
+      page: () => HomePageView(),
       binding: HomePageBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_NEWS,
+      page: () => DetailNewsView(),
+      binding: DetailNewsBinding(),
     ),
   ];
 }
