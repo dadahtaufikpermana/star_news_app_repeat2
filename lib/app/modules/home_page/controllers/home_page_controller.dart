@@ -33,6 +33,7 @@ class HomePageController extends GetxController {
     }
   }
 
+
   Future deleteNews({required String userId}) async{
     isLoading.toggle();
     try{
