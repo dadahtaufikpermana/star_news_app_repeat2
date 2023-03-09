@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 
-import '../model/list_articel_model.dart';
-import '../service/list_articel_service.dart';
+import '../model/list_news_model.dart';
+import '../service/news_service.dart';
 
 class HomePageController extends GetxController {
   RxBool isLoading = false.obs;

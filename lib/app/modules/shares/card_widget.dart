@@ -5,8 +5,8 @@ import 'package:get/get_core/src/get_main.dart';
 
 import '../../routes/app_pages.dart';
 
-class ListNews extends StatelessWidget {
-  const ListNews(
+class CardWidget extends StatelessWidget {
+  const CardWidget(
       {super.key,
         required this.title,
         required this.description,

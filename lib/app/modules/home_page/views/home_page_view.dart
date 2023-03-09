@@ -28,7 +28,7 @@ class HomePageView extends GetView<HomePageController> {
         child: Column(
           children: [
             ...homeController.listNews.reversed.map(
-                  (element) => ListNews(
+                  (element) => CardWidget(
                 title: element.title,
                 description: element.body,
                 id: element.id.toString(),
