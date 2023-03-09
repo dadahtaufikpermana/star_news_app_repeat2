@@ -1,28 +1,42 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:star_news_app_repeat2/app/modules/home_page/controllers/home_page_controller.dart';
 
 import '../../home_page/service/news_service.dart';
 
 class CreateNewsController extends GetxController {
-  final cTitle = TextEditingController();
-  final cDesc = TextEditingController();
+  FocusNode nodeTwo = FocusNode();
+
+  void changeNode() {
+    nodeTwo.requestFocus();
+  }
+
+  TextEditingController cTitle = TextEditingController();
+  TextEditingController cDesc = TextEditingController();
   final isLoading = false.obs;
+
+  HomePageController homepagecontroller = Get.find<HomePageController>();
+
+  String userIdConstant = '11';
 
   @override
   void onInit() {
     super.onInit();
   }
 
-  onSubmit() async {
-    isLoading(true);
+  Future<void> createNewsController() async {
+    isLoading.toggle();
     try {
-      final response =
-      await NewsService().postNews(title: cTitle.text, desc: cDesc.text);
+      final response = await NewsService().postNews(
+          title: cTitle.text, desc: cDesc.text, userId: userIdConstant);
       print(response);
-      isLoading(false);
+      homepagecontroller.refreshListArticle();
       Get.back();
+      isLoading.toggle();
+      Get.snackbar("success", "create success");
     } catch (e) {
-      isLoading(false);
+      isLoading.toggle();
+      Get.snackbar("Error", e.toString());
     }
   }
 

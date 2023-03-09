@@ -15,19 +15,35 @@ class HomePageController extends GetxController {
     getListNews();
   }
 
-  getListNews() async {
-    isLoading(true);
-    try {
-      final response = await newsService.getNews();
-      response.map((v) {
-        print(v);
-        final news = ListNewsModel.fromJson(v);
-        listNews.add(news);
-      }).toList();
-      isLoading(false);
-    } catch (e) {
-      isLoading(false);
-      print(e.toString());
+  Future<void> refreshListArticle() async{
+    listNews.clear();
+    await getListNews();
+  }
+
+  Future<void> getListNews() async{
+    isLoading.toggle();
+    try{
+      final response = await NewsService().getNews();
+      listNews.clear();
+      listNews.addAll(response as Iterable<ListNewsModel>);
+      isLoading.toggle();
+    } catch(e){
+      isLoading.toggle();
+      Get.snackbar("Error", e.toString());
+    }
+  }
+
+  Future deleteNews({required String userId}) async{
+    isLoading.toggle();
+    try{
+      final response = await NewsService().deleteNewsService(id: userId);
+      Logger().d(response);
+      await refreshListArticle();
+      isLoading.toggle();
+      Get.snackbar("Deleted", "You have deleted article!");
+    } catch(e){
+      isLoading.toggle();
+      Get.snackbar("Error", e.toString());
     }
   }
 }

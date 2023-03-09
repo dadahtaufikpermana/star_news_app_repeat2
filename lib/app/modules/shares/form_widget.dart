@@ -69,7 +69,7 @@ class FormWidget extends GetView<CreateNewsController> {
           ),
           Obx(() => InkWell(
             onTap: () =>
-            controller.isLoading.value ? null : controller.onSubmit(),
+            controller.isLoading.value ? null : controller.createNewsController(),
             child: Container(
               padding: const EdgeInsets.symmetric(
                 horizontal: 100,

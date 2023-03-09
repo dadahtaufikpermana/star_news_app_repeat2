@@ -4,8 +4,9 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../routes/app_pages.dart';
+import '../home_page/controllers/home_page_controller.dart';
 
-class CardWidget extends StatelessWidget {
+class CardWidget extends GetView<HomePageController> {
   const CardWidget(
       {super.key,
         required this.title,
@@ -30,6 +31,12 @@ class CardWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            ListTile(
+              trailing: IconButton(
+                onPressed: () => controller.deleteNews(userId: controller.listNews.value.toString()),
+                icon: Icon(Icons.close, color: Colors.black,),
+              ),
+            ),
             Text(
               title,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
@@ -37,7 +44,7 @@ class CardWidget extends StatelessWidget {
             SizedBox(
               height: 14,
             ),
-            Text(description)
+            Text(description),
           ],
         ),
       ),
