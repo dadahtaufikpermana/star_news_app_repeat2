@@ -23,7 +23,7 @@ class HomePageView extends GetView<HomePageController> {
         backgroundColor: Colors.white,
         title: const Text('StarsNews', style: TextStyle(color: Colors.black),),
       ),
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.indigo,
       body: Obx(() => SingleChildScrollView(
         child: Column(
           children: [
@@ -38,7 +38,7 @@ class HomePageView extends GetView<HomePageController> {
         ),
       )),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Get.toNamed(Routes.HOME),
+        onPressed: () => Get.toNamed(Routes.CREATE_NEWS),
         backgroundColor: Colors.blue,
         child: const Icon(Icons.add),
       ),

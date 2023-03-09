@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/create_news/bindings/create_news_binding.dart';
+import '../modules/create_news/views/create_news_view.dart';
 import '../modules/detail_news/bindings/detail_news_binding.dart';
 import '../modules/detail_news/views/detail_news_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -36,6 +38,11 @@ class AppPages {
       name: _Paths.DETAIL_NEWS,
       page: () => DetailNewsView(),
       binding: DetailNewsBinding(),
+    ),
+    GetPage(
+      name: _Paths.CREATE_NEWS,
+      page: () => CreateNewsView(),
+      binding: CreateNewsBinding(),
     ),
   ];
 }
