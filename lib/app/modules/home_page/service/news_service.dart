@@ -1,8 +1,4 @@
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:logger/logger.dart';
-
-import '../model/list_news_model.dart';
 
 class NewsService {
   final _connect = Get.find<GetConnect>();
