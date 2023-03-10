@@ -27,7 +27,7 @@ class HomePageView extends GetView<HomePageController> {
       body: Obx(() => controller.isLoading.value
           ?CircularProgressIndicator()
           :RefreshIndicator(
-            onRefresh: () => controller.refreshListArticle(),
+            onRefresh: () => controller.refreshListNews(),
             child: SingleChildScrollView(
         child: Column(
             children: [

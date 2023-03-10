@@ -30,7 +30,7 @@ class CreateNewsController extends GetxController {
       final response = await NewsService().postNews(
           title: cTitle.text, desc: cDesc.text, userId: userIdConstant);
       print(response);
-      homepagecontroller.refreshListArticle();
+      homepagecontroller.refreshListNews();
       Get.back();
       isLoading.toggle();
       Get.snackbar("success", "create success");

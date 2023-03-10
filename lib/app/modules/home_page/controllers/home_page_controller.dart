@@ -15,7 +15,7 @@ class HomePageController extends GetxController {
     getListNews();
   }
 
-  Future<void> refreshListArticle() async{
+  Future<void> refreshListNews() async{
     listNews.clear();
     await getListNews();
   }
@@ -33,13 +33,12 @@ class HomePageController extends GetxController {
     }
   }
 
-
   Future deleteNews({required String userId}) async{
     isLoading.toggle();
     try{
       final response = await NewsService().deleteNewsService(id: userId);
       Logger().d(response);
-      await refreshListArticle();
+      await refreshListNews();
       isLoading.toggle();
       Get.snackbar("Deleted", "You have deleted article!");
     } catch(e){
